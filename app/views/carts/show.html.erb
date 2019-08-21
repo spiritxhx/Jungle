@@ -4,9 +4,9 @@
   </header>
 
   <% if enhanced_cart.length==0 %>
-  <div class="alert alert-warning">
-    Empty cart, <span><a href="/">shop now!</a></span>
-  </div>
+  <p class="alert alert-warning">
+    Empty cart, <%= link_to 'shop now', :root %>
+  </p>
   <% else %>
 
   <div class="panel panel-default items">
