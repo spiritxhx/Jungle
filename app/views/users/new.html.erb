@@ -2,11 +2,21 @@
 
 <%= form_for :user, url: '/users' do |f| %>
 
-  <p>Name: <%= f.text_field :name %></p>
+  <!-- <p>Name: <%= f.text_field :name %></p> -->
+  <label>Name:</label>
+  <input name="user[name]" id="user_name" class="form-control" />
   
-  <p>Email: <%= f.text_field :email %></p>
-  <p>Password: <%= f.password_field :password %></p>
-  <p>Password Confirmation: <%= f.password_field :password_confirmation %></p>
-  <%= f.submit "Submit" %>
+  <!-- <p>Email: <%= f.text_field :email %></p> -->
+  <label>Email:</label>
+  <input name="user[eamil]" id="user_email" class="form-control" />
+  <!-- <p>Password: <%= f.password_field :password %></p> -->
+  <label>Name:</label>
+  <input type="password" name="user[password]" id="user_password" class="form-control" />
+  <!-- <p>Password Confirmation: <%= f.password_field :password_confirmation %></p> -->
+  <label>Password Confirmation:</label>
+  <input type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control" />
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <!-- <%= f.submit "Submit" %> -->
 
 <% end %>
