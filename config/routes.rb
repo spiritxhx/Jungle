@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   end
 
 
-  get 'users/signup', to: 'users#new'
-  post 'users/create', to: 'users#create'
+  get '/signup', to: 'users#new'
+  post '/users', to: 'users#create'
 
 
 
