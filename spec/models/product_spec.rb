@@ -4,7 +4,6 @@ RSpec.describe Product, type: :model do
   describe 'Validations' do
     cat = Category.new(name:"meat")
     subject {described_class.new(price_cents:100, name: 'Anything', quantity: 2, category: cat)}
-    
     describe 'Name validation' do 
       it 'is valid with a valid name' do
         subject.name = 'Anything'
@@ -12,7 +11,8 @@ RSpec.describe Product, type: :model do
       end
       it 'is not valid without a valid name' do
         subject.name = nil
-        expect(subject).to_not be_valid
+        subject.valid?
+        expect(subject.errors[:name].first).to eq"can't be blank"
       end
     end
 
@@ -23,7 +23,8 @@ RSpec.describe Product, type: :model do
       end
       it 'is not valid without a valid price' do
         subject.price_cents=nil
-        expect(subject).to_not be_valid
+        subject.valid?
+        expect(subject.errors[:price_cents].first).to eq"is not a number"
       end
     end
 
@@ -33,7 +34,8 @@ RSpec.describe Product, type: :model do
       end
       it 'is not valid without a valid quantity' do
         subject.quantity = nil
-        expect(subject).to_not be_valid
+        subject.valid?
+        expect(subject.errors[:quantity].first).to eq"can't be blank"
       end
     end
 
@@ -43,7 +45,8 @@ RSpec.describe Product, type: :model do
       end
       it 'is not valid without a valid category' do
         subject.category = nil
-        expect(subject).to_not be_valid
+        subject.valid?
+        expect(subject.errors[:category].first).to eq"can't be blank"
       end
     end
 
