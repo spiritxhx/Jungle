@@ -35,5 +35,14 @@ RSpec.describe User, type: :model do
         expect(subject.errors[:password_confirmation].first).to eq"doesn't match Password"
       end
     end
+    
+    describe 'Email exists' do 
+      it 'is invalid without the email' do
+        subject.email=nil
+        subject.valid?
+        expect(subject.errors[:email].first).to eq"can't be blank"
+      end
+    end
+
   end
 end

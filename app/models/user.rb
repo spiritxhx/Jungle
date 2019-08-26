@@ -3,5 +3,7 @@ class User < ActiveRecord::Base
 
   validates :password, {presence: true, confirmation: true}
   validates :password_confirmation, presence: true
+  validates :email, presence: true
+  validates :name, presence: true
 
 end
