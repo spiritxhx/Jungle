@@ -14,5 +14,27 @@ RSpec.describe Product, type: :model do
         expect(subject).to_not be_valid
       end
     end
+
+    describe 'Price validation' do
+      it 'is valid with a valid price' do
+        subject.price_cents=90
+        expect(subject).to be_valid
+      end
+      it 'is not valid without a valid price' do
+        subject.price_cents=nil
+        expect(subject).to_not be_valid
+      end
+    end
+
+    describe 'Quantity validation' do
+      it 'is valid with a valid quantity' do
+        expect(subject).to be_valid
+      end
+      it 'is not valid without a valid quantity' do
+        subject.quantity = nil
+        expect(subject).to_not be_valid
+      end
+    end
+
   end
 end
