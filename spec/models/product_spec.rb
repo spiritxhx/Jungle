@@ -6,7 +6,6 @@ RSpec.describe Product, type: :model do
     subject {described_class.new(price_cents:100, name: 'Anything', quantity: 2, category: cat)}
     describe 'Name validation' do 
       it 'is valid with a valid name' do
-        subject.name = 'Anything'
         expect(subject).to be_valid
       end
       it 'is not valid without a valid name' do
@@ -18,7 +17,6 @@ RSpec.describe Product, type: :model do
 
     describe 'Price validation' do
       it 'is valid with a valid price' do
-        subject.price_cents=90
         expect(subject).to be_valid
       end
       it 'is not valid without a valid price' do
