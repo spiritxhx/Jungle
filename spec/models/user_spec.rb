@@ -44,5 +44,23 @@ RSpec.describe User, type: :model do
       end
     end
 
+    describe 'Password length' do
+      it 'is valid with length within 6 to 20' do
+        expect(subject).to be_valid
+      end
+      it 'is invalid with length of 5' do
+        subject.password = '12345'
+        subject.password_confirmation='12345'
+        subject.valid?
+        expect(subject.errors[:password].first).to eq"is too short (minimum is 6 characters)"
+      end
+      it 'is invalid with length of more than 20' do
+        subject.password = 'qweasdzxc123qweasdzxc'
+        subject.password_confirmation = 'qweasdzxc123qweasdzxc'
+        subject.valid?
+        expect(subject.errors[:password].first).to eq"is too long (maximum is 20 characters)"
+      end
+    end
+
   end
 end
