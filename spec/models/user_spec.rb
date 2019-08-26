@@ -62,5 +62,14 @@ RSpec.describe User, type: :model do
       end
     end
 
+    describe 'Email uniqueness' do
+      it 'should have unique email address' do
+        user = User.new(name: 'Bob', email: 'bob@me', password: 'qweasd123', password_confirmation: 'qweasd123')
+        user.save
+        subject.valid?
+        expect(subject.errors[:email].first).to eq"has already been taken"
+      end
+    end
+
   end
 end
