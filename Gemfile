@@ -34,6 +34,7 @@ gem 'money-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'stripe'
+gem 'pry'
 gem 'faker', '~> 1.6.1'
 
 # Use Capistrano for deployment

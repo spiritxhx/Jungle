@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
+    local_user_params = user_params()
+    local_user_params[:email] = local_user_params[:email].downcase.strip
+    user = User.new(local_user_params)
     if user.save
       session[:user_id] = user.id
       redirect_to '/'
@@ -15,6 +17,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email.downcase.strip, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
