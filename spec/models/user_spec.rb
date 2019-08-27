@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'Validations' do
-    subject {described_class.new(name: 'Bob', email: 'bob@me', password: 'qweasd123', password_confirmation: 'qweasd123')}
+    subject {described_class.new(name: 'Bob', email: 'bob@me1', password: 'qweasd123', password_confirmation: 'qweasd123')}
     describe 'Password exists' do 
       it 'is valid with a valid password' do
         expect(subject).to be_valid
@@ -64,12 +64,20 @@ RSpec.describe User, type: :model do
 
     describe 'Email uniqueness' do
       it 'should have unique email address' do
-        user = User.new(name: 'Bob', email: 'bob@me', password: 'qweasd123', password_confirmation: 'qweasd123')
+        user = User.new(name: 'Bob', email: 'bob@me1', password: 'qweasd123', password_confirmation: 'qweasd123')
         user.save
         subject.valid?
         expect(subject.errors[:email].first).to eq"has already been taken"
       end
     end
 
+  end
+  describe '.authenticate_with_credentials' do
+    # examples for this class method here
+    subject {described_class.new(name: 'Bob', email: 'bob@me2', password: 'qweasd123', password_confirmation: 'qweasd123')}
+    it 'should pass with the correct email and password' do
+      result = User.authenticate_with_credentials('bob@me2', 'qweasd123')
+      expect(result).to_not eq(nil)
+    end
   end
 end
