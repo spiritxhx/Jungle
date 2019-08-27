@@ -79,5 +79,19 @@ RSpec.describe User, type: :model do
       result = User.authenticate_with_credentials('bob@me2', 'qweasd123')
       expect(result).to_not eq(nil)
     end
+    it 'should not pass with wrong email and password' do
+      result = User.authenticate_with_credentials('bob@me3', 'qweasd123')
+      expect(result).to eq(nil)
+    end
+
+    it 'should ignore case' do
+      result = User.authenticate_with_credentials('BOB@me2', 'qweasd123')
+      expect(result).to_not eq(nil)
+    end
+
+    it 'should ignore spaces' do
+      result = User.authenticate_with_credentials(' BOB@me2 ', 'qweasd123')
+      expect(result).to_not eq(nil)
+    end
   end
 end
