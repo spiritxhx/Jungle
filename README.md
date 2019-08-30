@@ -2,9 +2,9 @@
 
 Jungle is a mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
-##Product screenshots
+## Product screenshots
 
-###Users
+### Users
 1. Users can see the list of the products and price, description about the products. 
 ![JungleMainPage](https://github.com/spiritxhx/Jungle/blob/master/screenshots/JungleMainPage.png)
 
@@ -22,11 +22,11 @@ Jungle is a mini e-commerce application built with Rails 4.2 for purposes of tea
 5. Users can pay for their items in cart(using fake credit card for now)
 ![JunglePayment](https://github.com/spiritxhx/Jungle/blob/master/screenshots/JunglePayment.png)
 
-###Administrators
+### Administrators
 System admins can modify the inforamtion for the products
 ![JungleProducts](https://github.com/spiritxhx/Jungle/blob/master/screenshots/JungleProducts.png)
 
-###test
+### test
 Screenshots for test results
 ![JungleTest](https://github.com/spiritxhx/Jungle/blob/master/screenshots/JungleTest.png)
 
