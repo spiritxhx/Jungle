@@ -26,8 +26,9 @@ Jungle is a mini e-commerce application built with Rails 4.2 for purposes of tea
 System admins can modify the inforamtion for the products
 ![JungleProducts](https://github.com/spiritxhx/Jungle/blob/master/screenshots/JungleProducts.png)
 
-### test
+### Testing
 Screenshots for test results
+
 ![JungleTest](https://github.com/spiritxhx/Jungle/blob/master/screenshots/JungleTest.png)
 
 ## Setup
