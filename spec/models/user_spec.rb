@@ -74,22 +74,30 @@ RSpec.describe User, type: :model do
   end
   describe '.authenticate_with_credentials' do
     # examples for this class method here
-    subject {described_class.new(name: 'Bob', email: 'bob@me2', password: 'qweasd123', password_confirmation: 'qweasd123')}
+    # subject {described_class.new(name: 'Bob', email: 'bob@me2', password: 'qweasd123', password_confirmation: 'qweasd123')}
     it 'should pass with the correct email and password' do
+      user = User.new(name: 'Bob', email: 'bob@me2', password: 'qweasd123', password_confirmation: 'qweasd123')
+      user.save
       result = User.authenticate_with_credentials('bob@me2', 'qweasd123')
       expect(result).to_not eq(nil)
     end
     it 'should not pass with wrong email and password' do
+      user = User.new(name: 'Bob', email: 'bob@me2', password: 'qweasd123', password_confirmation: 'qweasd123')
+      user.save
       result = User.authenticate_with_credentials('bob@me3', 'qweasd123')
       expect(result).to eq(nil)
     end
 
     it 'should ignore case' do
+      user = User.new(name: 'Bob', email: 'bob@me2', password: 'qweasd123', password_confirmation: 'qweasd123')
+      user.save
       result = User.authenticate_with_credentials('BOB@me2', 'qweasd123')
       expect(result).to_not eq(nil)
     end
 
     it 'should ignore spaces' do
+      user = User.new(name: 'Bob', email: 'bob@me2', password: 'qweasd123', password_confirmation: 'qweasd123')
+      user.save
       result = User.authenticate_with_credentials(' BOB@me2 ', 'qweasd123')
       expect(result).to_not eq(nil)
     end
